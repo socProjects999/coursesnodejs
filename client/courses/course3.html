@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI/UX Design Professional - Course Registration</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/courses.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1><a href="/">EduRegister</a></h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/#courses">Courses</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="course-detail">
+        <section class="course-header">
+            <h1>UI/UX Design Professional</h1>
+            <p class="course-subtitle">Master User Interface and Experience Design in 10 Weeks</p>
+        </section>
+
+        <section class="course-details">
+            <div class="course-info">
+                <h2>Course Overview</h2>
+                <p>Learn to create beautiful and intuitive user interfaces and experiences. This course covers design principles, tools like Figma and Adobe XD, and user research methodologies.</p>
+                
+                <h3>What You'll Learn</h3>
+                <ul class="learning-points">
+                    <li>Fundamentals of UI/UX design</li>
+                    <li>User research and personas</li>
+                    <li>Wireframing and prototyping</li>
+                    <li>Figma mastery</li>
+                    <li>Adobe XD for designers</li>
+                    <li>Design systems and component libraries</li>
+                    <li>Usability testing and iteration</li>
+                    <li>Portfolio development</li>
+                </ul>
+
+                <h3>Course Details</h3>
+                <div class="course-meta-detail">
+                    <p><strong>Duration:</strong> 10 Weeks</p>
+                    <p><strong>Level:</strong> All Levels</p>
+                    <p><strong>Price:</strong> $399</p>
+                    <p><strong>Certificate:</strong> Yes, upon completion</p>
+                </div>
+            </div>
+
+            <div class="course-sidebar">
+                <div class="enrollment-card">
+                    <p class="price-large">$399</p>
+                    <button id="checkout-button" class="checkout-btn">Proceed to Checkout</button>
+                    <p class="secure-payment">🔒 Secure payment powered by Stripe</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 EduRegister. All rights reserved.</p>
+    </footer>
+
+    <!-- Stripe JS Library -->
+    <script src="https://js.stripe.com/v3/"></script>
+    <script>
+        const stripe = Stripe('pk_test_your_stripe_publishable_key_here');
+        
+        const checkoutButton = document.getElementById('checkout-button');
+        
+        checkoutButton.addEventListener('click', async () => {
+            try {
+                const response = await fetch('/create-checkout-session/course3', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+                
+                const session = await response.json();
+                
+                const result = await stripe.redirectToCheckout({
+                    sessionId: session.id
+                });
+                
+                if (result.error) {
+                    alert(result.error.message);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Failed to initiate checkout. Please try again.');
+            }
+        });
+    </script>
+</body>
+</html>
