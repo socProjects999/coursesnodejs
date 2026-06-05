@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Registration System</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/courses.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>EduRegister</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="#courses">Courses</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h2>Welcome to Our Course Registration System</h2>
+            <p>Discover amazing courses and enhance your skills today!</p>
+        </section>
+
+        <section id="courses" class="courses-section">
+            <h2>Available Courses</h2>
+            <div class="courses-grid">
+                <!-- Course 1 -->
+                <div class="course-card" id="work-1">
+                    <div class="course-image">
+                        <img src="assets/course1.jpg" alt="Web Development Course" onerror="this.src='https://via.placeholder.com/300x200?text=Web+Development'">
+                    </div>
+                    <div class="course-content">
+                        <h3>Web Development Bootcamp</h3>
+                        <p class="course-description">Learn full-stack web development with modern technologies including React, Node.js, and MongoDB.</p>
+                        <div class="course-meta">
+                            <span class="duration">⏱️ 12 Weeks</span>
+                            <span class="level">📊 Beginner to Advanced</span>
+                        </div>
+                        <p class="price">$499</p>
+                        <button class="register-btn" data-course="course1">Register Now</button>
+                    </div>
+                </div>
+
+                <!-- Course 2 -->
+                <div class="course-card" id="work-2">
+                    <div class="course-image">
+                        <img src="assets/course2.jpg" alt="Data Science Course" onerror="this.src='https://via.placeholder.com/300x200?text=Data+Science'">
+                    </div>
+                    <div class="course-content">
+                        <h3>Data Science Masterclass</h3>
+                        <p class="course-description">Master data analysis, machine learning, and AI with Python, pandas, scikit-learn, and TensorFlow.</p>
+                        <div class="course-meta">
+                            <span class="duration">⏱️ 16 Weeks</span>
+                            <span class="level">📊 Intermediate</span>
+                        </div>
+                        <p class="price">$599</p>
+                        <button class="register-btn" data-course="course2">Register Now</button>
+                    </div>
+                </div>
+
+                <!-- Course 3 -->
+                <div class="course-card" id="work-3">
+                    <div class="course-image">
+                        <img src="assets/course3.jpg" alt="UI/UX Design Course" onerror="this.src='https://via.placeholder.com/300x200?text=UI/UX+Design'">
+                    </div>
+                    <div class="course-content">
+                        <h3>UI/UX Design Professional</h3>
+                        <p class="course-description">Create stunning user interfaces and experiences using Figma, Adobe XD, and design thinking principles.</p>
+                        <div class="course-meta">
+                            <span class="duration">⏱️ 10 Weeks</span>
+                            <span class="level">📊 All Levels</span>
+                        </div>
+                        <p class="price">$399</p>
+                        <button class="register-btn" data-course="course3">Register Now</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <h2>About Us</h2>
+            <p>We are dedicated to providing high-quality online education with industry experts as instructors. Our courses are designed to help you achieve your career goals.</p>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <h2>Contact Us</h2>
+            <p>Email: info@eduregister.com</p>
+            <p>Phone: +1 (555) 123-4567</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 EduRegister. All rights reserved.</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

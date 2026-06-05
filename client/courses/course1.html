@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Development Bootcamp - Course Registration</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/courses.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1><a href="/">EduRegister</a></h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/#courses">Courses</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="course-detail">
+        <section class="course-header">
+            <h1>Web Development Bootcamp</h1>
+            <p class="course-subtitle">Become a Full-Stack Developer in 12 Weeks</p>
+        </section>
+
+        <section class="course-details">
+            <div class="course-info">
+                <h2>Course Overview</h2>
+                <p>This comprehensive bootcamp covers everything you need to become a professional web developer. You'll learn HTML, CSS, JavaScript, React, Node.js, Express, MongoDB, and more.</p>
+                
+                <h3>What You'll Learn</h3>
+                <ul class="learning-points">
+                    <li>Modern HTML5 and CSS3 with responsive design</li>
+                    <li>JavaScript ES6+ and advanced concepts</li>
+                    <li>React.js for frontend development</li>
+                    <li>Node.js and Express for backend APIs</li>
+                    <li>MongoDB and database design</li>
+                    <li>Git and version control</li>
+                    <li>Deployment and DevOps basics</li>
+                </ul>
+
+                <h3>Course Details</h3>
+                <div class="course-meta-detail">
+                    <p><strong>Duration:</strong> 12 Weeks</p>
+                    <p><strong>Level:</strong> Beginner to Advanced</p>
+                    <p><strong>Price:</strong> $499</p>
+                    <p><strong>Certificate:</strong> Yes, upon completion</p>
+                </div>
+            </div>
+
+            <div class="course-sidebar">
+                <div class="enrollment-card">
+                    <p class="price-large">$499</p>
+                    <button id="checkout-button" class="checkout-btn">Proceed to Checkout</button>
+                    <p class="secure-payment">🔒 Secure payment powered by Stripe</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 EduRegister. All rights reserved.</p>
+    </footer>
+
+    <!-- Stripe JS Library -->
+    <script src="https://js.stripe.com/v3/"></script>
+    <script>
+        // Initialize Stripe with your publishable key
+        const stripe = Stripe('pk_test_your_stripe_publishable_key_here');
+        
+        // Get the checkout button
+        const checkoutButton = document.getElementById('checkout-button');
+        
+        // Add click event listener
+        checkoutButton.addEventListener('click', async () => {
+            try {
+                // Call backend to create checkout session
+                const response = await fetch('/create-checkout-session/course1', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+                
+                const session = await response.json();
+                
+                // Redirect to Stripe Checkout
+                const result = await stripe.redirectToCheckout({
+                    sessionId: session.id
+                });
+                
+                if (result.error) {
+                    alert(result.error.message);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Failed to initiate checkout. Please try again.');
+            }
+        });
+    </script>
+</body>
+</html>
