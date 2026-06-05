@@ -1,9 +1,9 @@
 /* Courses Section Styles */
 .courses-section {
-    background: white;
+    background: var(--card-bg);
     padding: 2rem;
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px var(--shadow-light);
 }
 
 .courses-grid {
@@ -15,17 +15,17 @@
 
 /* Course Card Styles */
 .course-card {
-    background: white;
+    background: var(--card-bg);
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px var(--shadow-light);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
 }
 
 .course-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 30px var(--shadow-dark);
 }
 
 .course-image {
@@ -51,12 +51,12 @@
 
 .course-content h3 {
     font-size: 1.4rem;
-    color: #333;
+    color: var(--text-primary);
     margin-bottom: 0.5rem;
 }
 
 .course-description {
-    color: #666;
+    color: var(--text-secondary);
     font-size: 0.95rem;
     line-height: 1.6;
     margin-bottom: 1rem;
@@ -68,12 +68,12 @@
     gap: 1rem;
     margin-bottom: 1rem;
     padding-bottom: 1rem;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .course-meta span {
     font-size: 0.85rem;
-    color: #888;
+    color: var(--text-muted);
 }
 
 .price {
@@ -81,6 +81,10 @@
     font-weight: 700;
     color: #667eea;
     margin-bottom: 1rem;
+}
+
+[data-theme="dark"] .price {
+    color: #8b9df5;
 }
 
 .register-btn {
@@ -134,21 +138,25 @@
 }
 
 .course-info {
-    background: white;
+    background: var(--card-bg);
     padding: 2rem;
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px var(--shadow-light);
 }
 
 .course-info h2 {
     text-align: left;
-    color: #333;
+    color: var(--text-primary);
     margin-bottom: 1rem;
 }
 
 .course-info h3 {
     color: #667eea;
     margin: 1.5rem 0 1rem;
+}
+
+[data-theme="dark"] .course-info h3 {
+    color: #8b9df5;
 }
 
 .learning-points {
@@ -158,11 +166,11 @@
 
 .learning-points li {
     margin-bottom: 0.5rem;
-    color: #555;
+    color: var(--text-secondary);
 }
 
 .course-meta-detail {
-    background: #f9f9f9;
+    background: var(--meta-bg);
     padding: 1.5rem;
     border-radius: 5px;
     margin-top: 1.5rem;
@@ -170,7 +178,7 @@
 
 .course-meta-detail p {
     margin-bottom: 0.5rem;
-    color: #555;
+    color: var(--text-secondary);
 }
 
 .course-sidebar {
@@ -180,10 +188,10 @@
 }
 
 .enrollment-card {
-    background: white;
+    background: var(--card-bg);
     padding: 2rem;
     border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px var(--shadow-light);
     text-align: center;
 }
 
@@ -192,6 +200,10 @@
     font-weight: 700;
     color: #667eea;
     margin-bottom: 1.5rem;
+}
+
+[data-theme="dark"] .price-large {
+    color: #8b9df5;
 }
 
 .checkout-btn {
@@ -215,7 +227,7 @@
 
 .secure-payment {
     font-size: 0.85rem;
-    color: #888;
+    color: var(--text-muted);
 }
 
 /* Responsive Design for Course Pages */
