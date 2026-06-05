@@ -16,6 +16,11 @@
             <ul class="nav-links">
                 <li><a href="/">Home</a></li>
                 <li><a href="/#courses">Courses</a></li>
+                <li>
+                    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                        🌙
+                    </button>
+                </li>
             </ul>
         </nav>
     </header>
@@ -67,6 +72,7 @@
 
     <!-- Stripe JS Library -->
     <script src="https://js.stripe.com/v3/"></script>
+    <script src="../app.js"></script>
     <script>
         // Fetch Stripe publishable key from server
         let stripe;
