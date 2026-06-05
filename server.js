@@ -39,6 +39,13 @@ app.get('/cancel', (req, res) => {
     res.sendFile(path.join(STATIC_DIR, 'cancel.html'));
 });
 
+// Serve Stripe publishable key
+app.get('/config', (req, res) => {
+    res.json({
+        publishableKey: process.env.STRIPE_PUBLISHABLE_KEY
+    });
+});
+
 // Create Stripe checkout session
 app.post('/create-checkout-session/:pid', async (req, res) => {
     try {
